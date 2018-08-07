@@ -4,6 +4,10 @@ import Vue from 'vue';
 import router from './router';
 import App from './App';
 
+import fastClick from 'fastclick';
+// 解决移动端点击300ms延迟
+fastClick.attach(document.body);
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
