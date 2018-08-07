@@ -4,6 +4,7 @@ import Vue from 'vue';
 import router from './router';
 import App from './App';
 
+import './assets/styles/reset.css';
 import fastClick from 'fastclick';
 // 解决移动端点击300ms延迟
 fastClick.attach(document.body);
