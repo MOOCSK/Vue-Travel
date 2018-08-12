@@ -128,6 +128,7 @@ export default {
 .icons {
   height: 0;
   padding-bottom: 50%;
+  margin-top: .2rem;
   overflow: hidden;
 }
 .icon {
