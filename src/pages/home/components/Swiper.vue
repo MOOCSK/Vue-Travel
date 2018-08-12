@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
+        <swiper :options="swiperOption" v-if="showSwiper">
             <!-- slides -->
-            <swiper-slide v-for="item of swiperList" :key="item.id">
+            <swiper-slide v-for="item of list" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl">
             </swiper-slide>
             <!-- Optional controls -->
@@ -12,27 +12,23 @@
 </template>
 
 <script>
-import Img01 from '@/assets/imgs/img_01.jpg';
-import Img02 from '@/assets/imgs/img_02.jpg';
-
 export default {
+    props: {
+        list: Array
+    },
     data() {
         return {
             swiperOption: {
+                autoplay: 3000,
                 pagination: '.swiper-pagination',
                 loop: true
-            },
-            swiperList: [
-                {
-                    id: '0001',
-                    imgUrl: Img01
-                },
-                {
-                    id: '0002',
-                    imgUrl: Img02
-                }
-            ]
+            }
         };
+    },
+    computed: {
+        showSwiper() {
+            return this.list.length;
+        }
     }
 };
 </script>
