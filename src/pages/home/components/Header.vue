@@ -7,10 +7,12 @@
         <span class="iconfont icon-sousuo"></span>
         输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-        <span>{{city}}</span>
-        <span class="iconfont icon-jiantou header-right__icon"></span>
-    </div>
+    <router-link to="city">
+        <div class="header-right">
+            <span>{{city}}</span>
+            <span class="iconfont icon-jiantou header-right__icon"></span>
+        </div>
+    </router-link>
 </div>
 </template>
 
@@ -27,8 +29,8 @@ export default {
 .@{prefix-header} {
     display: flex;
     justify-content: center;
-    height: .86rem;
-    line-height: .86rem;
+    height: @headerHeight;
+    line-height: @headerHeight;
     color: #fff;
     background-color: @bgColor;
     &-left {
@@ -55,6 +57,7 @@ export default {
         width: 1.24rem;
         text-align: center;
         font-size: 0;
+        color: white;
         span {
             font-size: .28rem;
         }
