@@ -4,6 +4,7 @@ import Vue from 'vue';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css';
 import router from './router';
+import store from './store';
 import App from './App';
 
 import './assets/styles/reset.css';
@@ -20,6 +21,7 @@ Vue.config.productionTip = false;
 new Vue({
     el: '#app',
     router,
+    store,
     components: {
         App
     },

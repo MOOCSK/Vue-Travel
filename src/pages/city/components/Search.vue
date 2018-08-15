@@ -5,7 +5,7 @@
         </div>
         <div class="search-content" ref="search" v-show="keyword">
             <ul>
-                <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+                <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">{{item.name}}</li>
                 <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配数据</li>
             </ul>
         </div>
@@ -19,7 +19,7 @@ export default {
         cities: Object
     },
     mounted() {
-        this.scroll = new Bscroll(this.$refs.search);
+        this.scroll = new Bscroll(this.$refs.search, {click: true});
     },
     data() {
         return {
@@ -55,6 +55,13 @@ export default {
                 this.list = result;
             }, 100);
         }
+    },
+    methods: {
+        handleCityClick(city) {
+            // this.$store.dispatch('changeCity', city);
+            this.$store.commit('changeCity', city);
+            this.$router.push('/');
+        }
     }
 };
 </script>
@@ -85,9 +92,9 @@ export default {
   background-color: #eee;
 }
 .search-item {
-    line-height: .62rem;
-    padding-left: .2rem;
-    background-color: #fff;
-    color: #666;
+  line-height: 0.62rem;
+  padding-left: 0.2rem;
+  background-color: #fff;
+  color: #666;
 }
 </style>
