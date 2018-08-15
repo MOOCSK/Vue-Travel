@@ -7,20 +7,16 @@
         <span class="iconfont icon-sousuo"></span>
         输入城市/景点/游玩主题
     </div>
-    <router-link to="city">
-        <div class="header-right">
-            <span>{{city}}</span>
+    <router-link tag="div" to="city" class="header-right">
+            <span>{{$store.state.city}}</span>
             <span class="iconfont icon-jiantou header-right__icon"></span>
-        </div>
     </router-link>
 </div>
 </template>
 
 <script>
 export default {
-    props: {
-        city: String
-    }
+
 };
 </script>
 
@@ -54,7 +50,8 @@ export default {
     }
     &-right {
         flex: none;
-        width: 1.24rem;
+        min-width: 1.24rem;
+        padding: 0 .1rem;
         text-align: center;
         font-size: 0;
         color: white;
@@ -62,6 +59,7 @@ export default {
             font-size: .28rem;
         }
         &__icon {
+            padding-left: .04rem;
             font-size: .24rem;
         }
     }
