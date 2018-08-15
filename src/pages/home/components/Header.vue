@@ -8,15 +8,19 @@
         输入城市/景点/游玩主题
     </div>
     <router-link tag="div" to="city" class="header-right">
-            <span>{{$store.state.city}}</span>
+            <span>{{city}}</span>
             <span class="iconfont icon-jiantou header-right__icon"></span>
     </router-link>
 </div>
 </template>
 
 <script>
-export default {
+import { mapState } from 'vuex';
 
+export default {
+    computed: {
+        ...mapState(['city'])
+    }
 };
 </script>
 
