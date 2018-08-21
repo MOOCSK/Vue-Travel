@@ -1,18 +1,18 @@
 <template>
     <div>
         <div class="banner" @click="handleBannerClick">
-            <img class="banner-img" src="https://note.youdao.com/yws/api/personal/file/C17CB0217C2D45D9BC40E2889248E9DD?method=download&shareKey=01fc6a10096e3d7f4517f7865ae202fa" />
+            <img class="banner-img" :src="bannerImg" />
             <div class="banner-info">
                 <div class="banner-title">
-                    大连圣亚海洋世界（AAAA景区）
+                    {{sightName}}
                 </div>
                 <div class="banner-number">
                     <span class="iconfont icon-img"></span>
-                    39
+                    {{this.bannerImgs.length}}
                 </div>
             </div>
         </div>
-        <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+        <common-gallary :imgs="bannerImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
     </div>
 </template>
 <script>
@@ -22,12 +22,13 @@ export default {
     components: {
         CommonGallary
     },
+    props: {
+        sightName: String,
+        bannerImg: String,
+        bannerImgs: Array
+    },
     data() {
         return {
-            imgs: [
-                'https://note.youdao.com/yws/api/personal/file/525537D1952E45BC9CC192A1796ABD57?method=download&shareKey=83c615f688ee28ca560dd09fbed5edc1',
-                'https://note.youdao.com/yws/api/personal/file/CE75A5597BD44D3498031328EF890012?method=download&shareKey=2e93963703ce837e187b1b36f1c7a671'
-            ],
             showGallary: false
         };
     },
